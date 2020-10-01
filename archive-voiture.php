@@ -15,7 +15,10 @@
         <div class="caracteristiques">
             <p>Couleur : <?php the_field( 'couleur' ); ?> • Cylindrée : <?php the_field( 'cylindree' ); ?> • Poids : <?php the_field( 'poids' ); ?></p>
         </div>
-       
+        <div>
+            <?php the_terms( $post->ID, 'marque', 'Marque : ' ); ?>
+        </div>
+
     </article>
     <?php endwhile; ?>
     <?php endif; ?>
