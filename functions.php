@@ -30,7 +30,7 @@ function my_custom_init() {
 		),
 		'has_archive' => true
 		)
-		);
+	);
 }
 
 /**

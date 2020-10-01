@@ -12,6 +12,10 @@
         <div class="content">
             <?php the_content(); ?>
         </div>
+        <div class="caracteristiques">
+            <p>Couleur : <?php the_field( 'couleur' ); ?> • Cylindrée : <?php the_field( 'cylindree' ); ?> • Poids : <?php the_field( 'poids' ); ?></p>
+        </div>
+       
     </article>
     <?php endwhile; ?>
     <?php endif; ?>
