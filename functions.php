@@ -5,6 +5,32 @@ add_action('init', 'my_custom_init');
 
 function my_custom_init() {
 	/* notre code PHP pour rajouter les custom post type */
+	register_post_type(
+		'voiture',
+		array(
+		'label' => 'Voitures',
+		'labels' => array(
+		'name' => 'Voitures',
+		'singular_name' => 'Voiture',
+		'all_items' => 'Toutes les voitures',
+		'add_new_item' => 'Ajouter une voiture',
+		'edit_item' => 'Éditer la voiture',
+		'new_item' => 'Nouvelle voiture',
+		'view_item' => 'Voir la voiture',
+		'search_items' => 'Rechercher parmi les voitures',
+		'not_found' => 'Pas de voiture trouvée',
+		'not_found_in_trash'=> 'Pas de voiture dans la corbeille'
+		),
+		'public' => true,
+		'capability_type' => 'post',
+		'supports' => array(
+		'title',
+		'editor',
+		'thumbnail'
+		),
+		'has_archive' => true
+		)
+		);
 }
 
 /**
