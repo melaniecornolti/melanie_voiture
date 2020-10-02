@@ -13,7 +13,7 @@
             <?php the_content(); ?>
         </div>
         <div class="caracteristiques">
-            <p>Couleur : <?php the_field( 'couleur' ); ?> • Cylindrée en m2 : <?php the_field( 'cylindree' ); ?> • Poids : <?php the_field( 'poids' ); ?></p>
+            <p>Couleur : <?php the_field( 'couleur' ); ?> • Cylindrée en cm3 : <?php the_field( 'cylindree' ); ?> • Poids : <?php the_field( 'poids' ); ?></p>
         </div>
         <div>
             <?php the_terms( $post->ID, 'marque', 'Marque : ' ); ?>
