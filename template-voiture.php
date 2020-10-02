@@ -21,14 +21,27 @@ get_header();
 // $query = new WP_Query( $args );
 
 $args = array(
-    'post_type' => 'voiture'
-    // 'meta_key' => 'cylindree', // nom du champ personnalisé
-    // 'meta_value_num' => 500, // ou meta_value pour tester un texte
-    // 'meta_compare' => '>' // < > != >= <=
+    'post_type' => 'voiture',
+    'meta_query' => array(
+        'relation' => 'ET',
+        array(
+            'key' => 'cylindree', // nom du champ personnalisé
+            'value' => 500, // ou meta_value pour tester un texte
+            'type' => 'numeric',
+            'compare' => '>' // < > != >= <=
+        ),
+        array(
+            'key' => 'annee', // nom du champ personnalisé
+            'value' => 1949, // ou meta_value pour tester un texte
+            'type' => 'numeric',
+            'compare' => '>' // < > != >= <=
+        ),
+    ),
 );
+
 $query = new WP_Query( $args );
 
-// print_r($query);
+print_r($query);
 
 ?>
 
@@ -46,7 +59,7 @@ $query = new WP_Query( $args );
             <?php the_content(); ?>
         </div>
         <div class="caracteristiques">
-            <p>Couleur : <?php the_field( 'couleur' ); ?> • Cylindrée en cm3 : <?php the_field( 'cylindree' ); ?> • Poids : <?php the_field( 'poids' ); ?></p>
+            <p>Couleur : <?php the_field( 'couleur' ); ?> • Cylindrée en cm3 : <?php the_field( 'cylindree' ); ?> • Poids : <?php the_field( 'poids' ); ?> • Année : <?php the_field( 'annee' ); ?></p>
         </div>
         <div>
             <?php the_terms( $post->ID, 'marque', 'Marque : ' ); ?>
